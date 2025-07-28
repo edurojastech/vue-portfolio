@@ -15,7 +15,7 @@
         <div class="px-4">
           <h5 class="pt-2">
             <i class="bi bi-robot"></i>
-            Olá, {{ userName }}!
+            Olá {{ userName }}!
           </h5>
         </div>
       </nav>
@@ -49,10 +49,7 @@
 <script setup>
 import { useRoute } from 'vue-router';
 const route = useRoute()
-const userName = 'Eduardo'
-const currentPath = route.params
-
-console.log(currentPath)
+const userName = ''
 
 
 </script>
