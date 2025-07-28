@@ -1,0 +1,63 @@
+<template>
+   <div>
+      <nav class="nav navbar text-white shandow d-flex justify-content-between px-3" id="navBarMain">
+        <div class="d-flex gap-2">
+          <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft" aria-controls="offcanvasLeft">
+            <i class="bi bi-list text-light"></i>
+          </button>
+          <img src='https://eduardorojas.com.br/assets/logoEdu.svg' alt="LOGO" width="140"/>
+        </div>
+        <div class="d-flex gap-4" id="links">
+          <h4>
+            <slot name="iconAndTitle"></slot>
+          </h4>
+        </div>
+        <div>
+          <h5>
+            <i class="bi bi-robot"></i>
+            Olá, {{ userName }}!
+          </h5>
+        </div>
+      </nav>
+
+      <div class="p-2">
+        <slot></slot>
+      </div>
+
+
+      <!-- {/* menu lateral */} -->
+      <div class="offcanvas offcanvas-start" id="offcanvasLeft" aria-labelledby="offcanvasLeftLabel">
+        <div class="offcanvas-header bg-dark px-4">
+          <img src='https://eduardorojas.com.br/assets/logoEdu.svg' alt="LOGO" width="120"/>
+          <button type="button" class="btn-close btn-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body px-5">
+          <div>
+            <router-link to='/' class="nav-link" style="font-size: 24px;">
+              <i class="bi bi-person-fill"></i> Home
+            </router-link>
+          </div>
+          <div>
+            <router-link to='/projetos' class="nav-link" style="font-size: 24px;">
+              <i class="bi bi-rocket-takeoff-fill"></i> Projetos
+            </router-link>
+          </div>
+        </div>
+      </div>
+    </div>
+</template>
+<script setup>
+import { useRoute } from 'vue-router';
+const route = useRoute()
+const userName = 'Eduardo'
+const currentPath = route.params
+
+console.log(currentPath)
+
+
+</script>
+<style scoped>
+#navBarMain {
+  background-color: #0B1424;
+}
+</style>

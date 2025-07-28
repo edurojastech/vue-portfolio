@@ -1,10 +1,12 @@
 <script setup>
   import { ref } from 'vue';
-  import First from '../components/First.vue';
+  import Dashboard from '../layout/Dashboard.vue';
+  import Header from '../components/HeaderPages.vue';
   import Card from '../components/Card.vue';
   import projetos from '../data/projetos';
   import FilterTechs from '../components/FilterTechs.vue';
   import FilterAno from '../components/FilterAno.vue';
+  import TitlePagesIcon from '../components/TitlePagesIcon.vue';
   const listProjetos = ref(projetos)
   let filtrandoPorAno = ''
   let filtrandoPorTech = ''
@@ -41,28 +43,40 @@
 </script>
 
 <template>
-  <First :qtd="projetos.length" />
-  <hr class="container" />
-  <div class="container">
-    <div class="d-flex justify-content-end py-2 gap-2">
-      <FilterTechs :filtrar="(e)=> filtrarPorTechs(e.target.value)"/>
-      <FilterAno :filtrar="(e)=> filtrandoAno(e.target.value)"/>
-    </div>
-
-    <h2 class="text-center" v-if="listProjetos.length == 0">Não há projetos!</h2>
-
-    <div class="e__grid py-2 mb-5">
-      <Card 
-        v-for="(p, index) in listProjetos"
-        :key="index"
-        :name="p.name" 
-        :url="p.url" 
-        :ano="p.ano" 
-        :description="p.description"
-        :techs="p.techs"
+  <Dashboard>
+    <!-- Title Page na navbar -->
+    <template v-slot:iconAndTitle>
+      <TitlePagesIcon 
+        icon-desc="bi bi-eyeglasses" 
+        title="Portfólio de Projetos"
       />
+    </template>
+   
+
+
+    <Header :qtd="projetos.length" />
+    <hr class="container" />
+    <div class="container">
+      <div class="d-flex justify-content-end py-2 gap-2">
+        <FilterTechs :filtrar="(e)=> filtrarPorTechs(e.target.value)"/>
+        <FilterAno :filtrar="(e)=> filtrandoAno(e.target.value)"/>
+      </div>
+
+      <h2 class="text-center" v-if="listProjetos.length == 0">Não há projetos!</h2>
+
+      <div class="e__grid py-2 mb-5">
+        <Card 
+          v-for="(p, index) in listProjetos"
+          :key="index"
+          :name="p.name" 
+          :url="p.url" 
+          :ano="p.ano" 
+          :description="p.description"
+          :techs="p.techs"
+        />
+      </div>
     </div>
-  </div>
+  </Dashboard>
 </template>
 <style scoped>
 .e__grid {
