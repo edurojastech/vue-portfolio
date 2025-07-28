@@ -1,7 +1,7 @@
 <template>
    <div>
-      <nav class="nav navbar text-white shandow d-flex justify-content-between px-4" id="navBarMain">
-        <div class="d-flex gap-2">
+      <nav class="nav navbar text-white shandow d-flex justify-content-between align-items-center" id="navBarMain">
+        <div class="d-flex gap-2 px-1">
           <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft" aria-controls="offcanvasLeft">
             <i class="bi bi-list text-light"></i>
           </button>
@@ -12,8 +12,8 @@
             <slot name="iconAndTitle"></slot>
           </h4>
         </div>
-        <div>
-          <h5>
+        <div class="px-4">
+          <h5 class="pt-2">
             <i class="bi bi-robot"></i>
             Olá, {{ userName }}!
           </h5>

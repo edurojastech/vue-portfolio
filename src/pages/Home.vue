@@ -16,8 +16,19 @@ import imgCover from '../assets/cover.png'
     </template>
     <div class="container my-5 px-3">
       <h2 class="text-center">Bem-vindos ao site de Eduardo Rojas</h2>
-      <img :src="imgCover" alt="" width="80%" style="border-radius: 8px; margin: auto auto; display: block;"/>
+      <img :src="imgCover" id="imgCover" alt="" style="border-radius: 8px; margin: auto auto; display: block;"/>
     </div>
     
   </Dashboard>
 </template>
+<style scoped>
+#imgCover {
+  width: 50%;
+}
+
+@media(max-width: 640px) {
+  #imgCover {
+    width: 90%;
+  }
+}
+</style>
