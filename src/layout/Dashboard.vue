@@ -1,6 +1,6 @@
 <template>
    <div>
-      <nav class="nav navbar text-white shandow d-flex justify-content-between px-3" id="navBarMain">
+      <nav class="nav navbar text-white shandow d-flex justify-content-between px-4" id="navBarMain">
         <div class="d-flex gap-2">
           <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft" aria-controls="offcanvasLeft">
             <i class="bi bi-list text-light"></i>
@@ -20,7 +20,7 @@
         </div>
       </nav>
 
-      <div class="p-2">
+      <div>
         <slot></slot>
       </div>
 
@@ -59,5 +59,11 @@ console.log(currentPath)
 <style scoped>
 #navBarMain {
   background-color: #0B1424;
+}
+
+@media(max-width: 640px) {
+  #links {
+    display: none !important;
+  }
 }
 </style>

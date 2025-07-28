@@ -14,9 +14,9 @@ import imgCover from '../assets/cover.png'
         title="Página Inicial"
       />
     </template>
-    <div class="container my-5">
-      <h1>Bem-vindos ao site de Eduardo Rojas</h1>
-      <img :src="imgCover" alt="" width="640" style="border-radius: 8px;"/>
+    <div class="container my-5 px-3">
+      <h2 class="text-center">Bem-vindos ao site de Eduardo Rojas</h2>
+      <img :src="imgCover" alt="" width="80%" style="border-radius: 8px; margin: auto auto; display: block;"/>
     </div>
     
   </Dashboard>
