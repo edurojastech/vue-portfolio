@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- <label for="#">Filtrar por Tecnologias:</label> -->
     <select 
       class="form-select form-select-lg mb-3" 
       aria-label="Large select example" 
@@ -8,18 +7,15 @@
       @change="filtrar"
     >
       <option selected value="todos">Ano criado</option>
-      <option value="2025">2025</option>
-      <option value="2024">2024</option>
-      <option value="2023">2023</option>
-      <option value="2022">2022</option>
-      <option value="2021">2021</option>
-      <option value="2020">2020</option>
+      <option v-for="(ano, i) in anos" :key="i" :value="ano">{{ ano }}</option>
     </select>
   </div>
 </template>
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps, ref } from 'vue';
 defineProps({
   filtrar: Function
 })
+
+const anos = ref([2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018])
 </script>

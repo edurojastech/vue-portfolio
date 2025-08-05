@@ -3,17 +3,17 @@
       <nav class="nav navbar text-white shandow d-flex justify-content-between align-items-center" id="navBarMain">
         <div class="d-flex gap-2 px-1">
           <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft" aria-controls="offcanvasLeft">
-            <i class="bi bi-list text-light"></i>
+            <i class="bi bi-list text-light" style="font-size: 24px;"></i>
           </button>
-          <img src='https://eduardorojas.com.br/assets/logoEdu.svg' alt="LOGO" width="140"/>
+          <img src='https://eduardorojas.com.br/assets/logoEdu.svg' alt="LOGO" width="160"/>
         </div>
         <div class="d-flex gap-4" id="links">
-          <h4>
+          <h4 style='font-size:32px;'>
             <slot name="iconAndTitle"></slot>
           </h4>
         </div>
         <div class="px-4">
-          <h5 class="pt-2">
+          <h5 class="pt-2" style='font-size:32px;'>
             <i class="bi bi-robot"></i>
             Olá {{ userName }}!
           </h5>
@@ -58,7 +58,7 @@ const userName = ''
   background-color: #0B1424;
 }
 
-@media(max-width: 640px) {
+@media(max-width: 632px) {
   #links {
     display: none !important;
   }

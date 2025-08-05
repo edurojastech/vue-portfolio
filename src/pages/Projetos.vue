@@ -4,13 +4,15 @@
   import Header from '../components/HeaderPages.vue';
   import Card from '../components/Card.vue';
   import projetos from '../data/projetos';
-  import FilterTechs from '../components/FilterTechs.vue';
   import FilterAno from '../components/FilterAno.vue';
   import TitlePagesIcon from '../components/TitlePagesIcon.vue';
+  import techs from '../data/techs';
+  import Select from '../components/Select.vue';
   const listProjetos = ref(projetos)
+  const listOptions = ref(techs);
+  const firstOption = 'Selecione tecnologias';
   let filtrandoPorAno = ''
   let filtrandoPorTech = ''
-  let filtrando = ''
   let techh = ref('')
   let ano = ref('')
 
@@ -34,12 +36,6 @@
     }
   }
 
-  // function filtrandoOsDois(){
-  //   listProjetos.value = projetos
-  //   filtrando = projetos.filter(p => p.tecnologias.includes(techh.value) && p.ano == ano.value)
-  //   listProjetos.value = filtrando
-  // }
-
 </script>
 
 <template>
@@ -51,15 +47,19 @@
         title="Portfólio de Projetos"
       />
     </template>
-   
-
 
     <Header :qtd="projetos.length" />
+
     <hr class="container" />
+
     <div class="container">
       <div class="d-flex justify-content-end py-2 gap-2">
-        <FilterTechs :filtrar="(e)=> filtrarPorTechs(e.target.value)"/>
         <FilterAno :filtrar="(e)=> filtrandoAno(e.target.value)"/>
+        <Select 
+          :list-options="listOptions" 
+          :first-option="firstOption" 
+          :filtrar="(e)=> filtrarPorTechs(e.target.value)"
+        />
       </div>
 
       <h2 class="text-center" v-if="listProjetos.length == 0">Não há projetos!</h2>

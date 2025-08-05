@@ -80,9 +80,6 @@ const projetos = [
     techs: [htmlIcon, cssIcon, jsIcon, bootstrapIcon],
     tecnologias: 'html, css , js, bootstrap'
   },
-
-  
-
 ]
 
 export default projetos
